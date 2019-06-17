@@ -2,20 +2,19 @@
 
 def collatz(number):
 
-    if number % 2 == 2:
-        even = number // 2
-        print(even)
-        return even
-    elif number % 2 != 0:
-        odd = (3 * number + 1)
-        print(odd)
-        return odd
-    else:
-        break
+    if number % 2 == 0:
+        print(number // 2)
+        return number // 2
 
-userInput = int(input('Enter a number:' ))
-
-while userInput != 1:
-    collatz = collatz(userInput)
+    elif number % 2 == 1:
+        result = 3 * number + 1
+        print(result)
+        return result
+try:
+    n = input("Give me a number: ")
+    while n != 1:
+        n = collatz(int(n))
+except ValueError:
+    print('Non-integer entered, program will exit')
           
     
