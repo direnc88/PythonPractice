@@ -8,6 +8,8 @@ def printBoard(board)
     print(board['mid-L'] + '|' + board['mid-M'] + '|' + board['mid-R'])
     print('-+-+-')
     print(board['low-L'] + '|' + board['low-M'] + '|' + board['low-R'])
+
+#this adds turn based functionality to the game. 
 turn = 'X'
 for i in range(9):
     printBoard(theBoard)
