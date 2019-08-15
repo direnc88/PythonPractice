@@ -11,3 +11,4 @@ pprint.pprint(count)
 #counts the occurances of each character in a string and puts them into a dictionary
 #this is accomplished using setdefault
 #pretty prints the dictionary at the end of the program. 
+ 
