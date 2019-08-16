@@ -9,3 +9,4 @@ def displayInventory(inventory):
     print("Total number of items: " + str(item_total))
 
 displayInventory(stuff)
+
