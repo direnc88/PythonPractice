@@ -1,0 +1,209 @@
+logo <https://www.delftstack.com/>
+
+  * Tutorials <https://www.delftstack.com/tutorial/>
+  * HowTos <https://www.delftstack.com/howto/>
+
+Ezoic <https://www.ezoic.com/what-is-ezoic/>report this ad
+	
+× <javascript:void(0)>
+
+	search	 
+
+  * Python How-To's <https://www.delftstack.com/howto/python/>
+      o The Sigmoid Function in Python
+        <https://www.delftstack.com/howto/python/sigmoid-function-python/>
+      o Generate Random Colors in Python
+        <https://www.delftstack.com/howto/python/generate-random-colors-python/>
+      o Import Module From Subdirectory in Python
+        <https://www.delftstack.com/howto/python/python-import-from-subdirectory/>
+      o Loop Through Multiple Lists in Python
+        <https://www.delftstack.com/howto/python/how-to-loop-through-multiple-lists-in-python/>
+      o Check a String Contains a Number in Python
+        <https://www.delftstack.com/howto/python/how-to-check-a-string-contains-a-number-or-not-in-python/>
+
+Ezoic <https://www.ezoic.com/what-is-ezoic/>report this ad
+
+ 1. // <https://www.delftstack.com/>
+ 2. HowTo <https://www.delftstack.com/howto/>
+ 3. Python How-To's <https://www.delftstack.com/howto/python/>
+ 4. Find Files With a Certain Extension Only in Python
+    <https://www.delftstack.com/howto/python/how-to-find-files-with-certain-extension-only-in-python/>
+
+
+  Find Files With a Certain Extension Only in Python
+
+Python <https://www.delftstack.com/tags/python/> Python File
+<https://www.delftstack.com/tags/python-file/>
+
+Created: July-29, 2018 | Updated: December-10, 2020
+
+//
+<http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fwww.delftstack.com%2fhowto%2fpython%2fhow-to-find-files-with-certain-extension-only-in-python%2f&t=Find%20Files%20With%20a%20Certain%20Extension%20Only%20in%20Python>//
+<https://twitter.com/intent/tweet/?text=Python%20How-To%27s%20-%20Find%20Files%20With%20a%20Certain%20Extension%20Only%20in%20Python&url=https%3a%2f%2fwww.delftstack.com%2fhowto%2fpython%2fhow-to-find-files-with-certain-extension-only-in-python%2f&hashtags=web,development>//
+<https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fwww.delftstack.com%2fhowto%2fpython%2fhow-to-find-files-with-certain-extension-only-in-python%2f&title=Python%20How-To%27s%20-%20Find%20Files%20With%20a%20Certain%20Extension%20Only%20in%20Python&source=https%3a%2f%2fwww.delftstack.com%2fhowto%2fpython%2fhow-to-find-files-with-certain-extension-only-in-python%2f&summary=Short%20summary>
+
+ 1. |glob.glob| Method to Find Files With Certain Extension
+    <#glob.glob-method-to-find-files-with-certain-extension>
+ 2. |os.listdir()| Method to Find Files With Certain Extension
+    <#os.listdir-method-to-find-files-with-certain-extension>
+ 3. |pathlib.glob| Method to Find Files With Certain Extension
+    <#pathlib.glob-method-to-find-files-with-certain-extension>
+ 4. Find Files With a Certain Extension in the Directory and Its
+    Subdirectories in Python
+    <#find-files-with-a-certain-extension-in-the-directory-and-its-subdirectories-in-python>
+ 5. |pathlib| Module Search Files Recursively
+    <#pathlib-module-search-files-recursively>
+
+This article introduces different methods to find files with a certain
+extension only in Python.
+
+
+    |glob.glob| Method to Find Files With Certain Extension
+    <#glob-glob-method-to-find-files-with-certain-extension>
+
+We could use |glob.glob| module to find the files with a certain
+extension only in Python.
+
+Python
+
+pythonCopy|import glob
+
+targetPattern = r"C:\Test\*.txt"
+glob.glob(targetPattern)
+|
+
+The above codes demonstrate how to find the files with extension |txt|
+in the directory |C:\Test|.
+
+
+    |os.listdir()| Method to Find Files With Certain Extension
+    <#os-listdir-method-to-find-files-with-certain-extension>
+
+|os.listdir()| <https://docs.python.org/3/library/os.html#os.listdir>
+function lists all the files in the given directory, without the file
+path information. You could extract the files with the specific
+extension by using |str.endswith()| function.
+
+Python
+
+pythonCopy|>>> import os
+>>> fileDir = r"C:\Test"
+>>> fileExt = r".txt"
+>>> [_ for _ in os.listdir(fileDir) if _.endswith(fileExt)]
+['test.txt', 'test1.txt']
+|
+
+You need to construct the full path with |os.path.join()| function.
+
+Python
+
+pythonCopy|>>> import os
+>>> fileDir = r"C:\Test"
+>>> fileExt = r".txt"
+>>> [os.path.join(fileDir, _) for _ in os.listdir(fileDir) if _.endswith(fileExt)]
+['C:\\Test\\test.txt', 'C:\\Test\\test1.txt']
+|
+
+
+    |pathlib.glob| Method to Find Files With Certain Extension
+    <#pathlib-glob-method-to-find-files-with-certain-extension>
+
+|pathlib| module
+<https://docs.python.org/3/library/pathlib.html#module-pathlib> is
+introduced in Python 3.4 which offers object-oriented filesystem paths.
+It provides two styles: Windows paths in Windows OS and POSIX paths in
+Unix-alike systems.
+
+Python
+
+pythonCopy|>>> import pathlib
+>>> fileDir = r"C:\Test"
+>>> fileExt = r"*.txt"
+>>> list(pathlib.Path(fileDir).glob(fileExt))
+[WindowsPath('C:/Test/test.txt'), WindowsPath('C:/Test/test1.txt')]
+|
+
+The result is represented with |WindowsPath|, and you could convert the
+result to the string representation by adding |str()|, like
+
+Python
+
+pythonCopy|>>> [str(_) for _ in pathlib.Path(fileDir).glob(fileExt)]
+['C:\\Test\\test.txt', 'C:\\Test\\test.txt']
+|
+
+
+    Find Files With a Certain Extension in the Directory and Its
+    Subdirectories in Python
+    <#find-files-with-a-certain-extension-in-the-directory-and-its-subdirectories-in-python>
+
+The pattern |C:\Test\*.txt| only searches the |txt| files in the
+directory |C:\Test|, but not in its subdirectories. If you want to also
+get |txt| files in the subdirectories, you could modify the pattern a bit.
+
+Python
+
+pythonCopy|import glob
+
+targetPattern = r"C:\Test\**\*.txt"
+glob.glob(targetPattern)
+|
+
+The wild cards |**| between |Test| and |.txt| means it should find the
+|txt| files both in the directory and its subdirectories.
+
+
+    |pathlib| Module Search Files Recursively
+    <#pathlib-module-search-files-recursively>
+
+Similar to adding |**| in |glob.glob| to search files recursively, you
+can also add |**| in |pathlib.Path.glob| method to find the files with a
+certain extension recursively.
+
+Python
+
+pythonCopy|>>> import pathlib
+>>> fileDir = r"C:\Test"
+>>> fileExt = r"**\*.txt"
+>>> list(pathlib.Path(fileDir).glob(fileExt))
+[WindowsPath('C:/Test/test.txt'), WindowsPath('C:/Test/test1.txt'), WindowsPath('C:/Test/sub/test1.txt')]
+|
+
+Contribute
+DelftStack is a collective effort contributed by software geeks like
+you. If you like the article and would like to contribute to DelftStack
+by writing paid articles, you can check the write for us
+<https://www.delftstack.com/write-for-us/> page.
+
+
+    Related Article - Python File
+    <https://www.delftstack.com/tags/python-file/>
+
+# Copy a File in Python
+<https://www.delftstack.com/howto/python/how-to-copy-a-file-in-python/>
+# Clear a File in Python
+<https://www.delftstack.com/howto/python/python-clear-file/>
+
+  * Check if a File Exists in Python
+    <https://www.delftstack.com/howto/python/how-to-check-if-a-file-exists-in-python/>
+  * Sort a Python Dictionary by Value
+    <https://www.delftstack.com/howto/python/how-to-sort-a-dictionary-by-value/>
+
+Ezoic <https://www.ezoic.com/what-is-ezoic/>report this ad
+
+// <#>
+
+Copyright © 2020. All right reserved
+
+  * About US <https://www.delftstack.com/about-us/>
+  * Write For Us <https://www.delftstack.com/write-for-us/>
+  * Privacy Policy <https://www.delftstack.com/privacy-policy/>
+  * Advertising <https://www.delftstack.com/advertising/>
+  * Sitemap <https://www.delftstack.com/sitemap/>
+  * Contact <https://www.delftstack.com/contact/>
+
+x
+
+x
+	
+
