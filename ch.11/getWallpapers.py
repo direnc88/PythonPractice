@@ -17,3 +17,13 @@ os.makedirs('NewWallpapers', exist_ok = True) #store pictures in ./NewWallpapers
 
 def getWallpapers():
     
+    #TODO: get to the search bar and enter in 3440x1440 wallpapers
+
+    #TODO: click on the first result
+
+    #TODO: find the first picture/download it (while loop)
+    
+    #TODO: save image to new folder
+
+    
+    
