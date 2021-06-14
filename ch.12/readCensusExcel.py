@@ -23,8 +23,16 @@ for row in range(2, sheet.get_highest_row() + 1):
     #Make sure the key for this county in this state exists.
     countyData[state].setdefault(county, {'tracts': 0, 'pop':0})
 
-     #Each row represents a census tract, so increment by one.
-    
+    #Each row represents a census tract, so increment by one.
+    countyData[state][county]['tracts'] += 1 
+    #increase the county pop by the pop in this cens tract.
+    countyData[state][county]['pop'] += 1
 
 #TODO: Open a new text file and write the contents of countyData to it.
-    
+print('Writing results...')
+resultFile = open('census2010.py', 'w')
+resultFile.write('allData = ' + pprint.pformat(countyData))
+resultFile.close()
+print('Done.')
+
+                 
