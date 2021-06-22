@@ -19,8 +19,12 @@ pdfWriter = PyPDF2.PdfFileWriter()
               pdfWriter.addPage(pageObj)
 
 #TODO: Loop thorugh all the pages (except the first) and add them
-
+    for pageNum in range(1, pdfRader.numPages):
+              pageObj = pdfReader.getPage(pageNum)
+              pdfWriter.addPage(pageObj)
 
 #TODO: Save the resulting PDF to a file.
-
+pdfOutput = open('allminutes.pdf', 'wb')
+pdfWriter.write(pdfOutput)
+pdfOutput.close()
               
