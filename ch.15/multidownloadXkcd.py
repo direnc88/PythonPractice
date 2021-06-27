@@ -26,7 +26,6 @@ while not url.endswith('#'):
 
 
     #TODO: Find the URL of the comic image
-    #find the URL of the comic image.
     comicElem = soup.select('#comic image')
     if comicElem == []
         print('Could not find comic image.')
