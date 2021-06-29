@@ -13,7 +13,19 @@ lastCol = sheet.get_highest_column()
 latestMonth = sheet.cell(row=1, column = lastCol).value
 
 #TODO: check each member's payment status
+unpaidMembers = {}
+for r in range(2, sheet.get_highest_row() + 1):
+    payment = sheet.cell(row = r, column = lastCol).value
+    if payment != 'paid':
+        name = sheet.cell(row = r, column = 1).value
+        email = sheet.cell(row = r, column = 2).value
+        unpaidMembers[name] = email
+
 
 #TODO: log in to email account
+smtpObj = smtplib.SMTP('smtp.gmail.com', 587)
+smtpObj.ehlo()
+smtpObj.starttls()
+smtpObj.login('my_email_address@gmail.com', sys.argv[1])  #replace this with your actual email. 
 
 #TODO: send out reminder emails. 
