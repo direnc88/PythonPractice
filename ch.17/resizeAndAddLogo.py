@@ -52,12 +52,3 @@ if width > SQUARE_FIT_SIZE and height > SQUARE_FIT_SIZE:
     #Save Changes
     im.save(os.path.join('withLogo', filename))
 
-    
-#TODO: Caculate the new width and height to resize to.
-
-#TODO: Resize the image.
-
-#TODO: Add the logo.
-
-#TODO: Save changes.
-
