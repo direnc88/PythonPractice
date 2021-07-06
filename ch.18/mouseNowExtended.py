@@ -1,6 +1,7 @@
 #! python 3
 
-#mouseNow.py - Displays the mouse cursor's current position.
+#mouseNowExtended.py - Displays the mouse cursor's current position,
+#and also gives the RGB value of the pixel under the cursor. 
 
 import pyautogui
 
